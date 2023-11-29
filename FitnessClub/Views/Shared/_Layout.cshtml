@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FitnessClub.styles.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -17,6 +19,34 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <ul class="navbar-nav flex-grow">
+                    <li>
+                        <a class="nav-link text-dark" asp-controller="Account" asp-action="Login" title="Главная">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+
+                @*если пользователь с ролью админ, то он получает доступ к работе со всеми пользователями системы*@
+                @if (User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(s => s.Value).Contains("admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Users" asp-action="Index" title="Пользователи">
+                            <i class="far fa-user"></i>  Пользователи
+                        </a>
+                    </li>
+                }
+                    <li>
+                        <div>
+                            <a class="dropdown-item text-dark" asp-controller="Services" asp-action="Index">Услуги</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a class="dropdown-item text-dark" asp-controller="Rooms" asp-action="Index">Помещения</a>
+                        </div>
+                    </li>
+                </ul>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -25,6 +55,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
                     </ul>
                 </div>
             </div>

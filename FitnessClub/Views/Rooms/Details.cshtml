@@ -1,0 +1,30 @@
+﻿@model FitnessClub.Models.Data.Room
+
+@{
+    ViewData["Title"] = "Помещения";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Главная</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Rooms" asp-action="Index">Помещения</a></li>
+        <li class="breadcrumb-item active">Информация</li>
+    </ol>
+</nav>
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр помещений
+</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.RoomName)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.RoomName)
+        </dd>
+    </dl>
+</div>
