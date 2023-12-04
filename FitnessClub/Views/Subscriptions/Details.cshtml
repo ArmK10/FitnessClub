@@ -1,0 +1,41 @@
+﻿@model FitnessClub.Models.Data.Subscription
+
+@{
+    ViewData["Title"] = "Абонементы";
+}
+
+<h3>
+    <a class="btn text-dark" asp-action="Index" title="Вернуться к списку">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    Просмотр абонемента
+</h3>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CountVisits)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CountVisits)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.CountDays)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.CountDays)
+        </dd>
+        <dt class="col-sm-3">
+            @Html.DisplayNameFor(model => model.Service)
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Service.ServiceName)
+        </dd>
+    </dl>
+</div>

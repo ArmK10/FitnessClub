@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
+using Microsoft.CodeAnalysis;
 
 namespace FitnessClub.Models.Data
 {
@@ -12,5 +14,8 @@ namespace FitnessClub.Models.Data
         [Required(ErrorMessage = "Введите название услуги")]
         [Display(Name = "Виды услуг")]
         public string ServiceName { get; set; }
+
+        [Required]
+        public ICollection<Subscription> Subscriptions { get; set; }
     }
 }
